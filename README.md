@@ -8,4 +8,4 @@ This repo contains a set of Python/bash scripts that can be used to automaticall
 
 ## Improvements
 
-Potentially, instead of the Python script also [GNU parallel](gnu.org/software/parallel/man.html) can be used. The rest of the files should still be quite useful, I hope. 
+Potentially, instead of the Python script also [GNU parallel](www.gnu.org/software/parallel/man.html) can be used. The rest of the files should still be quite useful, I hope. 
