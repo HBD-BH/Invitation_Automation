@@ -1,0 +1,47 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Settings for invitation %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\input{setPersonal}
+
+\ifthenelse{\equal{\TheSecondName}{}}
+    {\newcommand\SingPlur{sg}}
+    {\newcommand\SingPlur{pl}}
+
+% Check language
+\ifthenelse{\equal{\Lang}{dt}}%
+{% German
+    \newcommand\TheBGHeading{Einladung}
+    \hypersetup{
+        pdftitle=Einladung zur Hochzeitsfeier,
+        pdfauthor={Bernhard}}
+    \newcommand\ClosingPoem{%
+    love is the voice under all silences,\\
+    the hope which has no opposite in fear;\\
+    the strength so strong mere force is feebleness:\\
+    the truth more first than sun more last than star
+    }
+}%
+{\ifthenelse{\equal{\Lang}{zh}}%
+{% Chinese
+    \newcommand\TheBGHeading{喜帖}
+    \hypersetup{
+        pdftitle=喜帖,
+        pdfauthor={本德}}
+    \newcommand\ClosingPoem{%
+    爱是天时地利的迷信\\
+    原来你也在这里
+}
+}{% English
+    \newcommand\TheBGHeading{Invitation}
+    \hypersetup{
+        pdftitle=Invitation to our wedding party,
+        pdfauthor={Bernhard}}
+    \newcommand\ClosingPoem{%
+    love is the voice under all silences,\\
+    the hope which has no opposite in fear;\\
+    the strength so strong mere force is feebleness:\\
+    the truth more first than sun more last than star
+    }
+}}
+    

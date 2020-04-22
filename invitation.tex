@@ -1,0 +1,110 @@
+\documentclass[a4paper,12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%%% Packages %%%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{xeCJK}
+\setCJKmainfont{DFKai-SB}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ifthen}
+\usepackage[textwidth=12cm,textheight=22cm,centering]{geometry}
+\geometry{top=2.3cm,bottom=2.3cm, left=3cm, right=3cm}
+\usepackage[x11names]{xcolor}
+\usepackage{background}
+\usepackage{tikz}
+\usetikzlibrary{backgrounds}
+\usepackage{hyperref}
+\usepackage{setspace}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Parameters %%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\input{settings}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%% New commands %%%%
+%%%%%%%%%%%%%%%%%%%%%%
+\newcommand*\wb[3]{%
+  {\fontsize{#1}{#2}\usefont{U}{webo}{xl}{n}#3}}
+
+\newcommand\RowSepVar[1]{\\[#1]}
+\newcommand\RowSep{\RowSepVar{2ex}}
+
+% The page frame
+\def\FColor{Firebrick3} % The document font color
+% Corners of the page frame
+\def\TL{E}
+\def\TR{F}
+\def\BL{G}
+\def\BR{H}
+
+\SetBgColor{\FColor}
+\SetBgAngle{0}
+\SetBgScale{1}
+\SetBgOpacity{1}
+\SetBgContents{%
+\begin{tikzpicture}
+\node at (0.50\paperwidth,12) {\wb{80}{34}{\TL}\rule[60pt]{0.15\paperwidth}{0.4pt}%
+  \raisebox{54pt}{%
+  \makebox[.3\paperwidth]{\ \fontsize{24}{29}\selectfont\scshape \TheBGHeading }}%
+  \rule[60pt]{0.15\paperwidth}{0.4pt}\wb{80}{34}{\TR}};
+\node at (1.5,-0.5\paperheight+410) {\rule{0.4pt}{.68\paperheight}};
+\node at (19.5,-0.5\paperheight+410) {\rule{0.4pt}{.68\paperheight}};
+\node at (0.5\paperwidth,-\paperheight+480) {\wb{80}{34}{\BL}\rule[-10pt]{0.6\paperwidth}{0.4pt}\wb{80}{34}{\BR}} ;
+\end{tikzpicture}%
+}
+
+% Colorize text
+\newcommand*\ColText[1]{\textcolor{\FColor}{#1}}
+\newcommand*\SignText[1]{\textcolor{\FColor}{\emph{#1}}}
+\newcommand*\Heading[1]{{\fontsize{24}{29}\selectfont\ColText{#1}}\\[0.8em]}
+\newcommand*\TabHeading[1]{\multicolumn{2}{@{}l}{{\fontsize{24}{29}\selectfont\ColText{#1}}}\\[0.8em]}
+
+% Switch between single invitees and more than one ('feel free to bring a +1' texts)
+\newcommand\SwitchSgPl[2]{%
+\ifthenelse{\equal{\SingPlur}{sg}}{#1}{#2}%
+}
+
+% Switch for gender of the first name (important for German addressing Liebe vs. Lieber)
+\newcommand\SwitchGender[2]{%
+\ifthenelse{\equal{\Gender}{f}}{#1}{#2}%
+}
+
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Parameters %%%%%
+%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\selectfont\textcolor{Ivory1}{.} \\
+
+% Check language and assign input
+\ifthenelse{\equal{\Lang}{dt}}%
+{% German
+    \input{dt}
+}%
+{\ifthenelse{\equal{\Lang}{zh}}%
+{% Chinese
+    \input{zh}
+}{% English
+    \input{en}
+}}
+
+% Insert a nice photo
+\begin{center}
+\begin{minipage}[l]{0.75\textwidth}
+\includegraphics[width=0.95\textwidth]{photo.jpg}
+\end{minipage}
+\end{center}
+\vfill
+% Add a romantic poem at the bottom
+\begin{minipage}[r]{0.95\textwidth}
+    \linespread{2.0}
+\raggedleft
+\em
+\ClosingPoem
+\end{minipage}
+    
+\end{document}
