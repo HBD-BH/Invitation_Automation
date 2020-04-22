@@ -27,4 +27,5 @@ Potentially, instead of the Python script also [GNU parallel](https://gnu.org/so
 
 ### TODOs
 - Add comments to scripts 
+- Tidy up the python script
 
