@@ -1,0 +1,5 @@
+#!/bin/bash
+
+filename=invitation
+rm -f  $filename.aux *.log $filename.bbl $filename.blg $filename.dvi $filename.ps  $filename.nav  $filename.out  $filename.snm  $filename.toc $filename.lof $filename.tdo $filename.pbsdat $filename.run.xml $filename.bcf > /dev/null
+rm -f *.*~ .*.un~ *~ *.aux > /dev/null
